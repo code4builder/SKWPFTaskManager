@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SKWPFTaskManager.Api.Models
+namespace SKWPFTaskManager.Common.Models
 {
     public enum UserStatus
     {
