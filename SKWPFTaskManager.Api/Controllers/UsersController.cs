@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SKWPFTaskManager.Api.Models;
@@ -9,6 +10,8 @@ namespace SKWPFTaskManager.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
+
     public class UsersController : ControllerBase
     {
         private readonly ApplicationContext _db;
@@ -18,6 +21,7 @@ namespace SKWPFTaskManager.Api.Controllers
         }
 
         [HttpGet("Test")]
+        [AllowAnonymous]
         public IActionResult TestApi()
         {
             return Ok("All is ok!");
@@ -75,7 +79,6 @@ namespace SKWPFTaskManager.Api.Controllers
             }
             return NotFound();
         }
-
 
         [HttpGet]
         public async Task<IEnumerable<UserModel>> GetUsers()
