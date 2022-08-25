@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SKWPFTaskManager.Api.Models;
 using SKWPFTaskManager.Api.Models.Data;
+using SKWPFTaskManager.Api.Models.Services;
 using SKWPFTaskManager.Common.Models;
 
 namespace SKWPFTaskManager.Api.Controllers
@@ -15,69 +14,47 @@ namespace SKWPFTaskManager.Api.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ApplicationContext _db;
+        private readonly UsersService _usersService;
         public UsersController(ApplicationContext db)
         {
             _db = db;
+            _usersService = new UsersService(db);
         }
 
         [HttpGet("Test")]
         [AllowAnonymous]
         public IActionResult TestApi()
         {
-            return Ok("All is ok!");
+            return Ok("Server is launched at " + DateTime.Now);
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         public IActionResult CreateUser([FromBody] UserModel userModel)
         {
             if (userModel != null)
             {
-                User newUser = new User(userModel.FirstName, userModel.LastName,
-                    userModel.Email, userModel.Password, userModel.Status,
-                    userModel.Phone, userModel.Photo);
-                _db.Users.Add(newUser);
-                _db.SaveChanges();
-                return Ok();
+                bool result = _usersService.Create(userModel);
+                return result ? Ok() : NotFound();
             }
             return BadRequest();
         }
 
-        [HttpPatch("update/{id}")]
+        [HttpPatch("{id}")]
         public IActionResult UpdateUser(int id, [FromBody] UserModel userModel)
         {
             if (userModel != null)
             {
-                User userForUpdate = _db.Users.FirstOrDefault(x => x.Id == id);
-                if (userForUpdate != null)
-                {
-                    userForUpdate.FirstName = userModel.FirstName;
-                    userForUpdate.LastName = userModel.LastName;
-                    userForUpdate.Email = userModel.Email;
-                    userForUpdate.Password = userModel.Password;
-                    userForUpdate.Phone = userModel.Phone;
-                    userForUpdate.Photo = userModel.Photo;
-                    userForUpdate.Status = userModel.Status;
-
-                    _db.Users.Update(userForUpdate);
-                    _db.SaveChanges();
-                    return Ok();
-                }
-                return NotFound();
+                bool result = _usersService.Update(id, userModel);
+                return result ? Ok() : NotFound();
             }
             return BadRequest();
         }
 
-        [HttpPatch("delete/{id}")]
+        [HttpPatch("{id}")]
         public IActionResult DeleteUser(int id)
         {
-            User userToRemove = _db.Users.FirstOrDefault(u => u.Id == id);
-            if (userToRemove != null)
-            {
-                _db.Users.Remove(userToRemove);
-                _db.SaveChanges();
-                return Ok();
-            }
-            return NotFound();
+            bool result = _usersService.Delete(id);
+            return result ? Ok() : NotFound();
         }
 
         [HttpGet]
@@ -86,15 +63,13 @@ namespace SKWPFTaskManager.Api.Controllers
             return await _db.Users.Select(u => u.ToDto()).ToListAsync();
         }
 
-        [HttpPost("create/all")]
+        [HttpPost("all")]
         public async Task<IActionResult> CreateMultipleUsers([FromBody] List<UserModel> userModels)
         {
             if (userModels != null && userModels.Count > 0)
             {
-                var newUsers = userModels.Select(u => new User(u));
-                _db.AddRange(newUsers);
-                await _db.SaveChangesAsync();
-                return Ok();
+                bool result = _usersService.CreateMultipleUsers(userModels);
+                return result ? Ok() : NotFound();
             }
             return BadRequest();
         }

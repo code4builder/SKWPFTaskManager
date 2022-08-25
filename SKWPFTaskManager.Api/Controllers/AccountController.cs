@@ -15,11 +15,11 @@ namespace SKWPFTaskManager.Api.Controllers
     public class AccountController : ControllerBase
     {
         private readonly ApplicationContext _db;
-        private readonly UserService _userService;
+        private readonly UsersService _userService;
         public AccountController(ApplicationContext db)
         {
             _db = db;
-            _userService = new UserService(db);
+            _userService = new UsersService(db);
         }
 
         [Authorize]
