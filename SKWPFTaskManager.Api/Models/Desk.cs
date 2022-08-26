@@ -41,5 +41,17 @@ namespace SKWPFTaskManager.Api.Models
                 ProjectId = this.ProjectId
             };
         }
+
+        public CommonModel ToShortDto()
+        {
+            return new DeskModel()
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Description = this.Description,
+                CreationDate = this.CreationDate,
+                Photo = this.Photo,
+            };
+        }
     }
 }

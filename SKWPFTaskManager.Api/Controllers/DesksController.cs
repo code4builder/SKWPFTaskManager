@@ -71,6 +71,7 @@ namespace SKWPFTaskManager.Api.Controllers
             {
                 if (deskModel != null)
                 {
+                    deskModel.AdminId = user.Id;
                     bool result = _deskService.Create(deskModel);
                     return result ? Ok() : NotFound();
                 }
