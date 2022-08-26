@@ -21,7 +21,7 @@ namespace SKWPFTaskManager.Api.Models
         {
             Name = model.Name;
             Description = model.Description;
-            CreationDate = model.CreationDate;
+            CreationDate = DateTime.Now;
             Photo = model.Photo;
         }
     }

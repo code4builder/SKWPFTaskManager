@@ -40,7 +40,7 @@ namespace SKWPFTaskManager.Api.Controllers
         }
 
         /// <summary>
-        /// Get projects by Id
+        /// Get projects by Id of user
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

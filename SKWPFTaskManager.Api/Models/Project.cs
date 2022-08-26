@@ -23,6 +23,7 @@ namespace SKWPFTaskManager.Api.Models
             return new ProjectModel()
             {
                 Id = this.Id,
+                Name = this.Name,
                 Description = this.Description,
                 CreationDate = this.CreationDate,
                 Photo = this.Photo,
