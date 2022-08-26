@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SKWPFTaskManager.Api.Models.Data;
-using SKWPFTaskManager.Common.Models;
 using Microsoft.EntityFrameworkCore;
-using SKWPFTaskManager.Api.Models.Services;
 using SKWPFTaskManager.Api.Models;
+using SKWPFTaskManager.Api.Models.Data;
+using SKWPFTaskManager.Api.Models.Services;
+using SKWPFTaskManager.Common.Models;
 
 namespace SKWPFTaskManager.Api.Controllers
 {

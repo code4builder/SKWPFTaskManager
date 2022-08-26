@@ -1,13 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SKWPFTaskManager.Api.Models.Abstractions;
 using SKWPFTaskManager.Api.Models.Data;
 using SKWPFTaskManager.Common.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SKWPFTaskManager.Api.Models.Services
 {

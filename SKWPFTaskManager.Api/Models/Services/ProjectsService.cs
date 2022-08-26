@@ -2,11 +2,6 @@
 using SKWPFTaskManager.Api.Models.Abstractions;
 using SKWPFTaskManager.Api.Models.Data;
 using SKWPFTaskManager.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SKWPFTaskManager.Api.Models.Services
 {

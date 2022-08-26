@@ -1,5 +1,5 @@
-﻿using SKWPFTaskManager.Common.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using SKWPFTaskManager.Common.Models;
 
 namespace SKWPFTaskManager.Api.Models
 {
