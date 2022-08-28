@@ -50,7 +50,7 @@ namespace SKWPFTaskManager.Api.Controllers
             return BadRequest();
         }
 
-        [HttpPatch("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id)
         {
             bool result = _usersService.Delete(id);

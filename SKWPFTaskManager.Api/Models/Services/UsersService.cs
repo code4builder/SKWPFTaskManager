@@ -96,24 +96,21 @@ namespace SKWPFTaskManager.Api.Models.Services
 
         public bool Update(int id, UserModel model)
         {
-            User userForUpdate = _db.Users.FirstOrDefault(x => x.Id == id);
-            if (userForUpdate != null)
+            return DoAction(delegate ()
             {
-                return DoAction(delegate ()
-                {
-                    userForUpdate.FirstName = model.FirstName;
-                    userForUpdate.LastName = model.LastName;
-                    userForUpdate.Email = model.Email;
-                    userForUpdate.Password = model.Password;
-                    userForUpdate.Phone = model.Phone;
-                    userForUpdate.Photo = model.Photo;
-                    userForUpdate.Status = model.Status;
+                User userForUpdate = _db.Users.FirstOrDefault(x => x.Id == id);
+                userForUpdate.FirstName = model.FirstName;
+                userForUpdate.LastName = model.LastName;
+                userForUpdate.Email = model.Email;
+                userForUpdate.Password = model.Password;
+                userForUpdate.Phone = model.Phone;
+                userForUpdate.Photo = model.Photo;
+                userForUpdate.Status = model.Status;
 
-                    _db.Users.Update(userForUpdate);
-                    _db.SaveChanges();
-                });
-            }
-            return false;
+                _db.Users.Update(userForUpdate);
+                _db.SaveChanges();
+            });
+
         }
 
         public bool Delete(int id)
