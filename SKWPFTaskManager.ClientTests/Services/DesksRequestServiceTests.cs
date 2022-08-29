@@ -1,9 +1,7 @@
-﻿using SKWPFTaskManager.Client.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SKWPFTaskManager.Client.Models;
 using SKWPFTaskManager.Common.Models;
 using System;
-using System.Collections.Generic;
 using System.Net;
 
 namespace SKWPFTaskManager.Client.Services.Tests

@@ -11,7 +11,6 @@ namespace SKWPFTaskManager.Client.Services
     {
         private string _desksControllerUrl = HOST + "desks";
 
-
         public List<DeskModel> GetAllDesks(AuthToken token)
         {
             string response = GetDataByUrl(HttpMethod.Get, _desksControllerUrl, token);
