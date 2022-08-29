@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
 using SKWPFTaskManager.Client.Models;
 using SKWPFTaskManager.Common.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SKWPFTaskManager.Client.Services
 {
