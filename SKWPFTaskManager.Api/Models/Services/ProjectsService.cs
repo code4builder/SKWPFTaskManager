@@ -46,7 +46,7 @@ namespace SKWPFTaskManager.Api.Models.Services
                 projectToUpdate.Description = model.Description;
                 projectToUpdate.Photo = model.Photo;
                 projectToUpdate.Status = model.Status;
-                projectToUpdate.AdminId = model.AdminId;
+                //projectToUpdate.AdminId = model.AdminId;
 
                 _db.Projects.Update(projectToUpdate);
                 _db.SaveChanges();

@@ -3,7 +3,7 @@
     public enum ProjectStatus
     {
         InProgress,
-        Sospended,
+        Suspended,
         Completed
     }
 }
