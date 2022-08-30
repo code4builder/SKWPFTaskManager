@@ -19,6 +19,12 @@ namespace SKWPFTaskManager.Client.Services
             return token;
         }
 
+        public UserModel GetCurrentUser(AuthToken token)
+        {
+            string response = GetDataByUrl(HttpMethod.Get, HOST + "account/info", token);
+            UserModel user = JsonConvert.DeserializeObject<UserModel>(response);
+            return user;
+        }
 
         public HttpStatusCode CreateUser(AuthToken token, UserModel user)
         {
