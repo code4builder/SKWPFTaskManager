@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Brush x:Key="commonBlueColor">#0696d7</Brush>
     <Brush x:Key="commonRedColor">red</Brush>
-    <Brush x:Key="commonGreyColor">#FF8D8D80</Brush>
+    <Brush x:Key="commonGrayColor">#FF8D8D80</Brush>
 
     <FontStyle x:Key="commonFontStyle">Normal</FontStyle>
 
@@ -47,16 +47,27 @@
         </Style.Resources>
     </Style>
 
-    <Style TargetType="TextBlock" x:Key="commonTBlock">
-        <Setter Property="FontSize" Value="20"/>
+    <Style TargetType="TextBlock" x:Key="sharedTBlock">
         <Setter Property="FontStyle" Value="{StaticResource commonFontStyle}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style TargetType="GridSplitter" x:Key="CommonSplitter">
+    <Style TargetType="TextBlock" x:Key="commonTBlock" BasedOn="{StaticResource sharedTBlock}">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="headerTBlock" BasedOn="{StaticResource sharedTBlock}">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style TargetType="GridSplitter" x:Key="commonSplitter">
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource commonGreyColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource commonGrayColor}"/>
         <Setter Property="Margin" Value="2"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="commonBorder">
+        <Setter Property="BorderBrush" Value="{StaticResource commonGrayColor}"/>
     </Style>
 </ResourceDictionary>

@@ -24,5 +24,10 @@
             Status = status;
         }
         public UserModel() { }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }
