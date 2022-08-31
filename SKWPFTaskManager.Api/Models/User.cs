@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SKWPFTaskManager.Common.Models;
 
 namespace SKWPFTaskManager.Api.Models
 {
@@ -33,6 +29,35 @@ namespace SKWPFTaskManager.Api.Models
             Photo = photo;
             RegistrationDate = DateTime.Now;
             Status = status;
+        }
+
+        public User(UserModel model)
+        {
+            Id = model.Id;
+            FirstName = model.FirstName;
+            LastName = model.LastName;
+            Email = model.Email;
+            Password = model.Password;
+            Phone = model.Phone;
+            Photo = model.Photo;
+            RegistrationDate = DateTime.Now;
+            Status = model.Status;
+        }
+
+        public UserModel ToDto()
+        {
+            return new UserModel()
+            {
+                Id = this.Id,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                Email = this.Email,
+                Password = this.Password,
+                Phone = this.Phone,
+                Photo = this.Photo,
+                RegistrationDate = DateTime.Now,
+                Status = this.Status,
+            };
         }
     }
 }

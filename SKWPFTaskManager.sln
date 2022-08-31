@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKWPFTaskManager.Api", "SKWPFTaskManager.Api\SKWPFTaskManager.Api.csproj", "{C0995B7A-0021-44DD-A7CD-CCE180143B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKWPFTaskManager.Api", "SKWPFTaskManager.Api\SKWPFTaskManager.Api.csproj", "{C0995B7A-0021-44DD-A7CD-CCE180143B74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKWPFTaskManager.Common.Models", "SKWPFTaskManager.Common.Models\SKWPFTaskManager.Common.Models.csproj", "{9169898E-8175-4976-8EC7-910E6F92523A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKWPFTaskManager.Client", "SKWPFTaskManager.Client\SKWPFTaskManager.Client.csproj", "{B6124F80-CD2D-4E57-A279-056C628039D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKWPFTaskManager.ClientTests", "SKWPFTaskManager.ClientTests\SKWPFTaskManager.ClientTests.csproj", "{25236C4A-68BE-4ACB-B2FD-318ADC595F14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{C0995B7A-0021-44DD-A7CD-CCE180143B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0995B7A-0021-44DD-A7CD-CCE180143B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0995B7A-0021-44DD-A7CD-CCE180143B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9169898E-8175-4976-8EC7-910E6F92523A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9169898E-8175-4976-8EC7-910E6F92523A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9169898E-8175-4976-8EC7-910E6F92523A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9169898E-8175-4976-8EC7-910E6F92523A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6124F80-CD2D-4E57-A279-056C628039D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6124F80-CD2D-4E57-A279-056C628039D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6124F80-CD2D-4E57-A279-056C628039D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6124F80-CD2D-4E57-A279-056C628039D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25236C4A-68BE-4ACB-B2FD-318ADC595F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25236C4A-68BE-4ACB-B2FD-318ADC595F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25236C4A-68BE-4ACB-B2FD-318ADC595F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25236C4A-68BE-4ACB-B2FD-318ADC595F14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

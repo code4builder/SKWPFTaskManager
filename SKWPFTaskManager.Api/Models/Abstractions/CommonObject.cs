@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SKWPFTaskManager.Common.Models;
 
 namespace SKWPFTaskManager.Api.Models
 {
@@ -15,6 +11,13 @@ namespace SKWPFTaskManager.Api.Models
         public CommonObject()
         {
             CreationDate = DateTime.Now;
+        }
+        public CommonObject(CommonModel model)
+        {
+            Name = model.Name;
+            Description = model.Description;
+            CreationDate = DateTime.Now;
+            Photo = model.Photo;
         }
     }
 }
