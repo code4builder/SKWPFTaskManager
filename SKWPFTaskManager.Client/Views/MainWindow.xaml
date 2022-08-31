@@ -12,6 +12,22 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         WindowStartupLocation="CenterScreen">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" MinWidth="50" MaxWidth="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="0" Style="{StaticResource CommonSplitter}"/>
+        <Grid Grid.Column="0">
+            <ItemsControl ItemsSource="{Binding NavButtons}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding Value}"
+                            Style="{StaticResource commonBtn}">
+                            <TextBlock Text="{Binding Key}" Style="{StaticResource commonTBlock}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </Grid>
 </Window>
