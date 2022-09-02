@@ -1,14 +1,8 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using SKWPFTaskManager.Client.Models;
 using SKWPFTaskManager.Client.Services;
-using SKWPFTaskManager.Client.Views;
-using SKWPFTaskManager.Client.Views.Pages;
-using SKWPFTaskManager.Common.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace SKWPFTaskManager.Client.ViewModels
 {

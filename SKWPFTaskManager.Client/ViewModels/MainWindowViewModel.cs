@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using SKWPFTaskManager.Client.Models;
+using SKWPFTaskManager.Client.Services;
 using SKWPFTaskManager.Client.Views;
 using SKWPFTaskManager.Client.Views.Pages;
 using SKWPFTaskManager.Common.Models;
@@ -12,12 +13,14 @@ namespace SKWPFTaskManager.Client.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        private CommonViewService _viewService;
+
         #region COMMANDS
-        public DelegateCommand OpenMyInfoPageCommand;
-        public DelegateCommand OpenProjectsPageCommand;
-        public DelegateCommand OpenDesksPageCommand;
-        public DelegateCommand OpenTasksPageCommand;
-        public DelegateCommand LogoutCommand;
+        public DelegateCommand OpenMyInfoPageCommand { get; private set; }
+        public DelegateCommand OpenProjectsPageCommand { get; private set; }
+        public DelegateCommand OpenDesksPageCommand { get; private set; }
+        public DelegateCommand OpenTasksPageCommand { get; private set; }
+        public DelegateCommand LogoutCommand { get; private set; }
 
         public DelegateCommand OpenUsersManagementCommand;
 
@@ -25,6 +28,8 @@ namespace SKWPFTaskManager.Client.ViewModels
 
         public MainWindowViewModel(AuthToken token, UserModel currentUser, Window currentWindow = null)
         {
+            _viewService = new CommonViewService();
+
             Token = token;
             CurrentUser = currentUser;
             _currentWindow = currentWindow;
@@ -55,7 +60,7 @@ namespace SKWPFTaskManager.Client.ViewModels
 
         #region PROPERTIES
 
-        private readonly string _userProjectsBtnName = "My ProjectsDesks";
+        private readonly string _userProjectsBtnName = "My Projects";
         private readonly string _userDesksBtnName = "My Desks";
         private readonly string _userTasksBtnName = "My Tasks";
         private readonly string _userInfoBtnName = "My Info";
@@ -131,14 +136,14 @@ namespace SKWPFTaskManager.Client.ViewModels
         }
         private void OpenProjectsPage()
         {
-            SelectedPageName = _userProjectsBtnName;
-            ShowMessage(_userProjectsBtnName);
+            var page = new ProjectsPage();
+            OpenPage(page, _userProjectsBtnName, new ProjectsPageViewModel(Token));
         }
 
         private void OpenDesksPage()
         {
             SelectedPageName = _userDesksBtnName;
-            ShowMessage(_userDesksBtnName);
+            _viewService.ShowMessage(_userDesksBtnName);
         }
 
         private void OpenTasksPage()
@@ -161,15 +166,10 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void OpenUsersManagement()
         {
             SelectedPageName = _manageUsersBtnName;
-            ShowMessage(_manageUsersBtnName);
+            _viewService.ShowMessage(_manageUsersBtnName);
         }
 
         #endregion
-
-        private void ShowMessage(string message)
-        {
-            MessageBox.Show(message);
-        }
 
         private void OpenPage(Page page, string pageName, BindableBase viewModel)
         {
