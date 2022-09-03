@@ -50,7 +50,7 @@ namespace SKWPFTaskManager.Client.Services
             return result;
         }
 
-        public HttpStatusCode DeleteDeskById(AuthToken token, int deskId)
+        public HttpStatusCode DeleteDesk(AuthToken token, int deskId)
         {
             var result = DeleteDataByURL(_desksControllerUrl + $"/{deskId}", token);
             return result;

@@ -116,7 +116,7 @@
                 </Button.Style>
             </Button>
             <Button Grid.Row="3" Content="Desks" 
-                    Command="{Binding}" 
+                    Command="{Binding OpenProjectDesksPageCommand}" 
                     Style="{StaticResource commonBtn}"/>
             <ListBox Grid.Row="4" ItemsSource="{Binding ProjectUsers}">
                 <ListBox.ItemTemplate>
