@@ -209,7 +209,6 @@ namespace SKWPFTaskManager.Client.ViewModels
         private List<ModelClient<ProjectModel>> GetProjectsToClient()
         {
             _viewService.CurrentOpenedWindow?.Close();
-
             return _projectsRequestService.GetAllProjects(_token)?.Select(project => new ModelClient<ProjectModel>(project)).ToList();
         }
 

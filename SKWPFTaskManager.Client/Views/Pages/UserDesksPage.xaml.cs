@@ -3,11 +3,11 @@
 namespace SKWPFTaskManager.Client.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for ProjectDesksPage.xaml
+    /// Interaction logic for UserTasksPage.xaml
     /// </summary>
-    public partial class ProjectDesksPage : Page
+    public partial class UserDesksPage : Page
     {
-        public ProjectDesksPage()
+        public UserDesksPage()
         {
             InitializeComponent();
         }

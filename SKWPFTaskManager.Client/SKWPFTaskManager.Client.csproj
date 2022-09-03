@@ -18,4 +18,17 @@
     <ProjectReference Include="..\SKWPFTaskManager.Common.Models\SKWPFTaskManager.Common.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Views\Pages\UserDesksPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Pages\UserDesksPage.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
