@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using SKWPFTaskManager.Client.Models;
 using SKWPFTaskManager.Client.Services;
 using SKWPFTaskManager.Client.Views.AddWindows;
+using SKWPFTaskManager.Client.Views.Pages;
 using SKWPFTaskManager.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private UsersRequestService _usersRequestService;
         private ProjectsRequestService _projectsRequestService;
         private CommonViewService _viewService;
+        private MainWindowViewModel _mainWindowVM;
 
         #region COMMANDS
 
@@ -27,14 +29,15 @@ namespace SKWPFTaskManager.Client.ViewModels
         public DelegateCommand SelectPhotoForProjectCommand { get; private set; }
         public DelegateCommand AddUsersToProjectCommand { get; private set; }
         public DelegateCommand OpenNewUsersToProjectCommand { get; private set; }
-
+        public DelegateCommand OpenProjectDesksPageCommand { get; private set; }
 
         #endregion
-        public ProjectsPageViewModel(AuthToken token)
+        public ProjectsPageViewModel(AuthToken token, MainWindowViewModel mainWindowVM)
         {
             _usersRequestService = new UsersRequestService();
             _projectsRequestService = new ProjectsRequestService();
             _viewService = new CommonViewService();
+            _mainWindowVM = mainWindowVM;
 
             _token = token;
             UpdatePage();
@@ -47,7 +50,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             SelectPhotoForProjectCommand = new DelegateCommand(SelectPhotoForProject);
             AddUsersToProjectCommand = new DelegateCommand(AddUsersToProject);
             OpenNewUsersToProjectCommand = new DelegateCommand(OpenNewUsersToProject);
-
+            OpenProjectDesksPageCommand = new DelegateCommand(OpenProjectDesksPage);
         }
 
         #region PROPERTIES
@@ -55,6 +58,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             get => _usersRequestService.GetCurrentUser(_token);
         }
+
         private ClientAction _typeActionWithProject;
         public ClientAction TypeActionWithProject
         {
@@ -178,28 +182,27 @@ namespace SKWPFTaskManager.Client.ViewModels
                 CreateProject();
             if (TypeActionWithProject == ClientAction.Update)
                 UpdateProject();
+
             UpdatePage();
         }
 
         private void CreateProject()
         {
             var resultAction = _projectsRequestService.CreateProject(_token, SelectedProject.Model);
-
-            _viewService.ShowActionResult(resultAction, "New project was created");
+            _viewService.ShowActionResult(resultAction, "New project has been created");
         }
 
         private void UpdateProject()
         {
             var resultAction = _projectsRequestService.UpdateProject(_token, SelectedProject.Model);
-
-            _viewService.ShowActionResult(resultAction, "Project was updated");
+            _viewService.ShowActionResult(resultAction, "Project has been updated");
         }
 
         private void DeleteProject()
         {
             var resultAction = _projectsRequestService.DeleteProject(_token, SelectedProject.Model.Id);
+            _viewService.ShowActionResult(resultAction, "Project has been deleted");
 
-            _viewService.ShowActionResult(resultAction, "Project was deleted");
             UpdatePage();
         }
 
@@ -230,7 +233,7 @@ namespace SKWPFTaskManager.Client.ViewModels
                 return;
             }
             var resultAction = _projectsRequestService.AddUsersToProjects(_token, SelectedProject.Model.Id, SelectedUsersForProject.Select(user => user.Id).ToList());
-            _viewService.ShowActionResult(resultAction, "New users were added to project ");
+            _viewService.ShowActionResult(resultAction, "New users have been added to project ");
 
             UpdatePage();
 
@@ -242,6 +245,15 @@ namespace SKWPFTaskManager.Client.ViewModels
             UserProjects = GetProjectsToClient();
             SelectedProject = null;
             SelectedUsersForProject = new List<UserModel>();
+        }
+
+        private void OpenProjectDesksPage()
+        {
+            if (SelectedProject?.Model != null)
+            {
+                var page = new ProjectDesksPage();
+                _mainWindowVM.OpenPage(page, $"{SelectedProject.Model.Name}", new ProjectDesksPageViewModel(_token, SelectedProject.Model));
+            }
         }
 
         #endregion
