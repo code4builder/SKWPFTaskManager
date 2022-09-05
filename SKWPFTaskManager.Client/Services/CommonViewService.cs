@@ -14,7 +14,7 @@ namespace SKWPFTaskManager.Client.Services
     {
         private string _imageDialogFilterPattern = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
 
-        public Window CurrentOpenedWindow { get; private set; }
+        public Window CurrentOpenedWindow { get; set; }
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);

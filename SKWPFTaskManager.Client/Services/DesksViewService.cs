@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SKWPFTaskManager.Client.Services
 {
@@ -22,7 +23,6 @@ namespace SKWPFTaskManager.Client.Services
             _desksRequestService = desksRequestService;
             _viewService = new CommonViewService();
         }
-
 
         public ModelClient<DeskModel> GetDeskClientById(object deskId)
         {

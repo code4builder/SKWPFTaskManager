@@ -6,6 +6,7 @@ using SKWPFTaskManager.Common.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace SKWPFTaskManager.Client.ViewModels
 {
@@ -45,6 +46,9 @@ namespace SKWPFTaskManager.Client.ViewModels
 
             ContextMenuCommands.Add("Edit", OpenEditDeskCommand);
             ContextMenuCommands.Add("Delete", DeleteDeskCommand);
+
+            
+
 
             UpdatePage();
         }
@@ -113,12 +117,14 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             SelectedDesk.Model.Columns = ColumnsForNewDesk.Select(c => c.Value).ToArray();
             _desksViewService.UpdateDesk(SelectedDesk.Model);
+            _viewService.CurrentOpenedWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             UpdatePage();
         }
 
         private void DeleteDesk()
         {
             _desksViewService.DeleteDesk(SelectedDesk.Model.Id);
+            _viewService.CurrentOpenedWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             UpdatePage();
         }
 

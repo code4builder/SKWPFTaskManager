@@ -21,6 +21,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private DesksRequestService _desksRequestService;
         private UsersRequestService _usersRequestService;
         private DesksViewService _desksViewService;
+        private MainWindowViewModel _mainWindowVM;
 
         #region COMMANDS
         public DelegateCommand OpenNewDeskCommand { get; private set; }
@@ -30,11 +31,11 @@ namespace SKWPFTaskManager.Client.ViewModels
         public DelegateCommand SelectPhotoForDeskCommand { get; private set; }
         public DelegateCommand AddNewColumnItemCommand { get; private set; }
         public DelegateCommand<object> RemoveColumnItemCommand { get; private set; }
-        //public DelegateCommand<object> OpenDeskTasksPageCommand { get; private set; }
+        public DelegateCommand<object> OpenDeskTasksPageCommand { get; private set; }
 
         #endregion
 
-        public ProjectDesksPageViewModel(AuthToken token, ProjectModel project)
+        public ProjectDesksPageViewModel(AuthToken token, ProjectModel project, MainWindowViewModel mainWindowVM)
         {
             _token = token;
             _project = project;
@@ -43,6 +44,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             _desksRequestService = new DesksRequestService();
             _usersRequestService = new UsersRequestService();
             _desksViewService = new DesksViewService(_token, _desksRequestService);
+            _mainWindowVM = mainWindowVM;
 
             UpdatePage();
 
@@ -55,7 +57,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             AddNewColumnItemCommand = new DelegateCommand(AddNewColumnItem);
             RemoveColumnItemCommand = new DelegateCommand<object>(RemoveColumnItem);
 
-            //OpenDeskTasksPageCommand = new DelegateCommand<object>(OpenDeskTasksPage);
+            OpenDeskTasksPageCommand = new DelegateCommand<object>(OpenDeskTasksPage);
         }
 
         #region PROPERTIES
@@ -175,12 +177,13 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             SelectedDesk.Model.Columns = ColumnsForNewDesk.Select(c => c.Value).ToArray();
             _desksViewService.UpdateDesk(SelectedDesk.Model);
+            _viewService.CurrentOpenedWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
         }
 
         private void DeleteDesk()
         {
             _desksViewService.DeleteDesk(SelectedDesk.Model.Id);
-
+            _viewService.CurrentOpenedWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             UpdatePage();
         }
 
@@ -207,11 +210,13 @@ namespace SKWPFTaskManager.Client.ViewModels
             ColumnsForNewDesk.Remove(itemToRemove);
         }
 
-        //private void OpenDeskTasksPage()
-        //{
-
-        //}
-
+        private void OpenDeskTasksPage(object deskId)
+        {
+            SelectedDesk = _desksViewService.GetDeskClientById(deskId);
+            var page = new DeskTasksPage();
+            var context = new DeskTasksPageViewModel(_token, SelectedDesk.Model, page);
+            _mainWindowVM.OpenPage(page, $"Tasks of {SelectedDesk.Model.Name}", context);
+        }
         #endregion
 
     }
