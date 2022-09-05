@@ -71,7 +71,7 @@ namespace SKWPFTaskManager.Client.Services.Tests
         [TestMethod()]
         public void DeleteTaskByIdTest()
         {
-            var result = _service.DeleteTaskById(_token, 6);
+            var result = _service.DeleteTask(_token, 6);
 
             Assert.AreEqual(HttpStatusCode.OK, result);
         }

@@ -14,7 +14,7 @@ namespace SKWPFTaskManager.Client.Services
     {
         private string _imageDialogFilterPattern = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
 
-        public Window CurrentOpenedWindow { get; private set; }
+        public Window CurrentOpenedWindow { get; set; }
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
@@ -55,7 +55,7 @@ namespace SKWPFTaskManager.Client.Services
             return filePath;
         }
 
-        public void SetPhotoForObject(CommonModel model)
+        public CommonModel SetPhotoForObject(CommonModel model)
         {
             string photoPath = GetFileFromDialog(_imageDialogFilterPattern);
             if (string.IsNullOrEmpty(photoPath) == false)
@@ -63,6 +63,7 @@ namespace SKWPFTaskManager.Client.Services
                 var photoBytes = File.ReadAllBytes(photoPath);
                 model.Photo = photoBytes;
             }
+            return model;
         }
     }
 }

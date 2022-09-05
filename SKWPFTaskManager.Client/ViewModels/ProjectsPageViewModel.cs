@@ -209,7 +209,6 @@ namespace SKWPFTaskManager.Client.ViewModels
         private List<ModelClient<ProjectModel>> GetProjectsToClient()
         {
             _viewService.CurrentOpenedWindow?.Close();
-
             return _projectsRequestService.GetAllProjects(_token)?.Select(project => new ModelClient<ProjectModel>(project)).ToList();
         }
 
@@ -252,7 +251,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             if (SelectedProject?.Model != null)
             {
                 var page = new ProjectDesksPage();
-                _mainWindowVM.OpenPage(page, $"{SelectedProject.Model.Name}", new ProjectDesksPageViewModel(_token, SelectedProject.Model));
+                _mainWindowVM.OpenPage(page, $"Desks of {SelectedProject.Model.Name}", new ProjectDesksPageViewModel(_token, SelectedProject.Model, _mainWindowVM));
             }
         }
 
