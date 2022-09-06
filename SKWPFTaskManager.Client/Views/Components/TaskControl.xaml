@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.Components"
              mc:Ignorable="d" 
              d:DesignHeight="180" d:DesignWidth="200">
@@ -17,43 +18,50 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           FontWeight="Bold"
                            Text="{Binding Path=Model.Name}" 
                            Style="{StaticResource commonTBlock}"
                            TextWrapping="Wrap"/>
-                
-                <TextBlock Grid.Row="1" 
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                            Text="{Binding Path=Model.Description}"
                            Style="{StaticResource commonTBlock}"
                            TextWrapping="Wrap"/>
-                
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <TextBlock  Text="Creator: " 
-                           Style="{StaticResource commonTBlock}"/>
-                    <TextBlock Text="{Binding Path=Creator}" 
-                           Style="{StaticResource commonTBlock}"/>
-                </StackPanel>
-                
-                <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <TextBlock  Text="Executor: " 
-                           Style="{StaticResource commonTBlock}"/>
-                    <TextBlock Text="{Binding Path=Executor}" 
-                           Style="{StaticResource commonTBlock}"/>
-                </StackPanel>
 
-                <StackPanel Grid.Row="4" Orientation="Horizontal">
-                    <TextBlock Text="Start: " 
-                           Style="{StaticResource commonTBlock}"/>
-                    <DatePickerTextBox Text="{Binding Path=Model.StartDate}" 
-                                       IsReadOnly="True"/>
-                </StackPanel>
 
-                <StackPanel Grid.Row="5" Orientation="Horizontal">
-                    <TextBlock Text="End: " 
+                <TextBlock Grid.Row="2" Grid.Column="0" 
+                           Text="Creator: " 
                            Style="{StaticResource commonTBlock}"/>
-                    <DatePickerTextBox Text="{Binding Path=Model.EndDate}" 
-                                       IsReadOnly="True"/>
-                </StackPanel>
+                <TextBlock Grid.Row="2" Grid.Column="1"
+                           Text="{Binding Path=Creator}" 
+                           Style="{StaticResource commonTBlock}"/>
+
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Executor: " 
+                           Style="{StaticResource commonTBlock}"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=Executor}" 
+                           Style="{StaticResource commonTBlock}"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0"
+                               Text="Start Date: " 
+                           Style="{StaticResource commonTBlock}"/>
+                <DatePickerTextBox Grid.Row="4" Grid.Column="1" x:Name="StartDatePicker"
+                                   Text="{Binding Path=Model.StartDate}"
+                                   Background="{StaticResource blueColor}"
+                                   Style="{StaticResource MaterialDesignDatePickerTextBox}"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" 
+                           Text="Finish Date: " 
+                           Style="{StaticResource commonTBlock}"/>
+                <DatePickerTextBox Grid.Row="5" Grid.Column="1"
+                                   Text="{Binding Path=Model.FinishDate}"
+                                   Background="{StaticResource blueColor}"
+                                   Style="{StaticResource MaterialDesignDatePickerTextBox}"/>
             </Grid>
         </Border>
     </Grid>

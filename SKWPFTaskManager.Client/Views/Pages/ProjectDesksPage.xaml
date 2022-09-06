@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Content="New Desk" Command="{Binding OpenNewDeskCommand}" Style="{StaticResource commonBtn}"/>
@@ -32,7 +32,7 @@
                                 </Grid.RowDefinitions>
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="{Binding Path=Model.Name}" TextWrapping="Wrap"
-                                               Style="{StaticResource commonTBlock}"/>
+                                               Style="{StaticResource commonTBlock}" FontWeight="Bold"/>
 
                                     <TextBlock Text="  "/>
 
