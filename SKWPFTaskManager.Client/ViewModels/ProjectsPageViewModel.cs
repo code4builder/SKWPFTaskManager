@@ -112,7 +112,7 @@ namespace SKWPFTaskManager.Client.ViewModels
 
         public List<UserModel> NewUsersForSelectedProject
         {
-            get 
+            get
             {
                 var allUsers = _usersRequestService.GetAllUsers(_token);
 
@@ -149,11 +149,18 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void OpenUpdateProject(object projectId)
         {
             SelectedProject = GetProjectClientById(projectId);
+            var adminId = _usersRequestService.GetProjectUserAdmin(_token, CurrentUser.Id);
+            if (adminId == SelectedProject.Model.AdminId)
+            {
+                TypeActionWithProject = ClientAction.Update;
 
-            _typeActionWithProject = ClientAction.Update;
-
-            var window = new CreateOrUpdateProjectWindow();
-            _viewService.OpenWindow(window, this);
+                var window = new CreateOrUpdateProjectWindow();
+                _viewService.OpenWindow(window, this);
+            }
+            else
+            {
+                _viewService.ShowMessage("You are not admin!");
+            }
 
         }
 
