@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         mc:Ignorable="d"
         Title="AddUsersToProjectWindow" Height="450" Width="800">
@@ -17,18 +18,23 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Email}" Style="{StaticResource commonTBlock}"/>
+                        <TextBlock Text="{Binding Path=Email}"/>
+                                   <!--Style="{StaticResource commonTBlock}"-->
                         <TextBlock Text="  "/>
-                        <TextBlock Text="{Binding Path=FirstName}" Style="{StaticResource commonTBlock}"/>
+                        <TextBlock Text="{Binding Path=FirstName}"/>
+                                   <!--Style="{StaticResource commonTBlock}"-->
                         <TextBlock Text="  "/>
-                        <TextBlock Text="{Binding Path=LastName}" Style="{StaticResource commonTBlock}"/>
+                        <TextBlock Text="{Binding Path=LastName}"/>
+                                   <!--Style="{StaticResource commonTBlock}"-->
                         <TextBlock Text="  "/>
-                        <TextBlock Text="{Binding Path=Status}" Style="{StaticResource commonTBlock}"/>
+                        <TextBlock Text="{Binding Path=Status}"/>
+                                   <!--Style="{StaticResource commonTBlock}"-->
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Row="1" Content="Add Users" Command="{Binding AddUsersToProjectCommand}"
-                Style="{StaticResource commonBtn}"/>
+        <Button Grid.Row="1" Content="Add Users" 
+                Command="{Binding AddUsersToProjectCommand}"/>
+                <!--Style="{StaticResource commonBtn}"-->
     </Grid>
 </Window>

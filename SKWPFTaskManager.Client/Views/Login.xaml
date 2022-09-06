@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views"
         mc:Ignorable="d"
         Title="Login" 
@@ -23,16 +24,16 @@
                     VerticalAlignment="Center"
                     Width="250">
             <TextBox Text="{Binding UserLogin}" 
-                     Style="{StaticResource commonTBox}"
                      HorizontalContentAlignment="Center"/>
+                     <!--Style="{StaticResource commonTBox}"-->
             <PasswordBox x:Name="UserPassword"
-                         HorizontalContentAlignment="Center"
-                         Style="{StaticResource commonPBox}"/>
+                         HorizontalContentAlignment="Center"/>
+                         <!--Style="{StaticResource commonPBox}"-->
             <Button Content="Ok"
                     Command="{Binding GetUserFromDBCommand}"
                     CommandParameter="{Binding ElementName=UserPassword}"
-                    Style="{StaticResource commonBtn}"
                     Width="100"/>
+                    <!--Style="{StaticResource commonBtn}"-->
         </StackPanel>
         <StackPanel Grid.Row="1" 
                     Orientation="Vertical"
@@ -48,12 +49,12 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <TextBlock Text="Previous user"
-                       Style="{StaticResource commonTBlock}"/>
+            <TextBlock Text="Previous user"/>
+                       <!--Style="{StaticResource commonTBlock}"-->
             <Button Content="{Binding CurrentUserCache.Login}"
                     Command="{Binding LoginFromCacheCommand}"
-                    CommandParameter="{Binding ElementName=window}"
-                    Style="{StaticResource commonBtn}"/>
+                    CommandParameter="{Binding ElementName=window}"/>
+                    <!--Style="{StaticResource commonBtn}"-->
         </StackPanel>
     </Grid>
 </Window>

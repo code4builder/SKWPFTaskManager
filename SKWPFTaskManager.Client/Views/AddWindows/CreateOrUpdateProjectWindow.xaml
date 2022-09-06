@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:commonModels="clr-namespace:SKWPFTaskManager.Common.Models;assembly=SKWPFTaskManager.Common.Models"
@@ -24,7 +25,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Project" Style="{StaticResource headerTBlock}"/>
+        <TextBlock Text="Project"/> <!--Style="{StaticResource headerTBlock}"-->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
@@ -39,22 +40,22 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Name: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Name: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <TextBox Grid.Row="0" Grid.Column="1"
-                         Text="{Binding SelectedProject.Model.Name}"
-                         Style="{StaticResource commonTBox}"/>
+                         Text="{Binding SelectedProject.Model.Name}"/>
+                         <!--Style="{StaticResource commonTBox}"-->
                 
                 <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Description: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Description: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <TextBox Grid.Row="1" Grid.Column="1"
-                         Text="{Binding SelectedProject.Model.Description}"
-                         Style="{StaticResource multilineTBox}"/>
+                         Text="{Binding SelectedProject.Model.Description}"/>
+                         <!--Style="{StaticResource multilineTBox}"-->
                 
                 <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Photo: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Photo: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <Grid Grid.Row="2" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -62,12 +63,12 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="{Binding SelectedProject.Image}"/>
                     <Button Grid.Row="1" Content="Select"
-                            Command="{Binding SelectPhotoForProjectCommand}"
-                            Style="{StaticResource commonBtn}"/>
+                            Command="{Binding SelectPhotoForProjectCommand}"/>
+                            <!--Style="{StaticResource commonBtn}"-->
                 </Grid>
                 <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Status: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Status: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <ComboBox Grid.Row="3" Grid.Column="1"
                           ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                           SelectedItem="{Binding SelectedProject.Model.Status}"/>
@@ -80,7 +81,7 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Delete" 
                     Command="{Binding DeleteProjectCommand}">
-                <Button.Style>
+                <!--<Button.Style>
                     <Style TargetType="Button" BasedOn="{StaticResource commonRedBtn}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding TypeActionWithProject}" 
@@ -89,11 +90,11 @@
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </Button.Style>
+                </Button.Style>-->
             </Button>
             <Button Grid.Column="1" Content="Save"
-                    Command="{Binding CreateOrUpdateProjectCommand}" 
-                    Style="{StaticResource commonBtn}"/>
+                    Command="{Binding CreateOrUpdateProjectCommand}"/>
+                    <!--Style="{StaticResource commonBtn}"-->
         </Grid>
     </Grid>
 </Window>

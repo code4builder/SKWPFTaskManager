@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         mc:Ignorable="d"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
@@ -23,8 +24,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Button Content="Select EXCEL file" Command="{Binding GetUsersFromExcelCommand}" 
-                Style="{StaticResource commonBtn}"/>
+        <Button Content="Select EXCEL file" 
+                Command="{Binding GetUsersFromExcelCommand}"/>
+                <!--Style="{StaticResource commonBtn}"-->
         <ListView Grid.Row="1" ItemsSource="{Binding UsersFromExcel}" 
                   SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
@@ -56,7 +58,7 @@
             </ListView.View>
         </ListView>
         <Button Grid.Row="2" Content="Load users" 
-                Command="{Binding AddUsersFromExcelCommand}"
-                Style="{StaticResource commonBtn}"/>
+                Command="{Binding AddUsersFromExcelCommand}"/>
+                <!--Style="{StaticResource commonBtn}"-->
     </Grid>
 </Window>

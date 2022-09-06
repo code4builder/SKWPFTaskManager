@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:commonModels="clr-namespace:SKWPFTaskManager.Common.Models;assembly=SKWPFTaskManager.Common.Models"
@@ -24,7 +25,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="User" Style="{StaticResource headerTBlock}"/>
+        <TextBlock Text="User"/>
+                   <!--Style="{StaticResource headerTBlock}"-->
         <ScrollViewer Grid.Row="1"  
                       VerticalScrollBarVisibility="Auto">
             <Grid Margin="10">
@@ -42,43 +44,49 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name: " 
-                           Style="{StaticResource commonTBlock}" 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"--> 
                 <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedUser.FirstName}" 
-                         Style="{StaticResource commonTBox}" 
                          HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                         <!--Style="{StaticResource commonTBox}"--> 
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name: " Style="{StaticResource commonTBlock}" 
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name: " 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"--> 
                 <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SelectedUser.LastName}" 
-                         Style="{StaticResource commonTBox}" 
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                         <!--Style="{StaticResource commonTBox}"--> 
 
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Phone: " Style="{StaticResource commonTBlock}" 
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Phone: " 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"--> 
                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedUser.Phone}"
-                         Style="{StaticResource commonTBox}" 
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                         <!--Style="{StaticResource commonTBox}"--> 
 
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Email:" Style="{StaticResource commonTBlock}" 
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Email:" 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"--> 
                 <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedUser.Email}"
-                         Style="{StaticResource commonTBox}" 
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                         <!--Style="{StaticResource commonTBox}"--> 
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Password: " Style="{StaticResource commonTBlock}" 
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Password: " 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"--> 
                 <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SelectedUser.Password}"
-                         Style="{StaticResource commonTBox}" 
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                         <!--Style="{StaticResource commonTBox}"--> 
 
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Status: " Style="{StaticResource commonTBlock}"
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Status: " 
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <ComboBox  Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Source={StaticResource dataFromEnum}}" 
                            SelectedItem="{Binding SelectedUser.Status}"/>
             </Grid>
         </ScrollViewer>
-        <Button Grid.Row="2" Content="Save" Command="{Binding CreateOrUpdateUserCommand}" 
-                Style="{StaticResource commonBtn}"/>
+        <Button Grid.Row="2" Content="Save" 
+                Command="{Binding CreateOrUpdateUserCommand}"/>
+                <!--Style="{StaticResource commonBtn}"-->
     </Grid>
 </Window>

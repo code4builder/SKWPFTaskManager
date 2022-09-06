@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="CreateOrUpdateDeskWindow" Height="450" Width="350"
         WindowStartupLocation="CenterScreen">
@@ -13,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Desk" Style="{StaticResource headerTBlock}"/>
+        <TextBlock Text="Desk"/> <!--Style="{StaticResource headerTBlock}"-->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
@@ -29,22 +30,22 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Name: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Name: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <TextBox Grid.Row="0" Grid.Column="1"
-                         Text="{Binding SelectedDesk.Model.Name}"
-                         Style="{StaticResource commonTBox}"/>
+                         Text="{Binding SelectedDesk.Model.Name}"/>
+                         <!--Style="{StaticResource commonTBox}"-->
 
                 <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Description: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Description: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <TextBox Grid.Row="1" Grid.Column="1"
-                         Text="{Binding SelectedDesk.Model.Description}"
-                         Style="{StaticResource multilineTBox}"/>
+                         Text="{Binding SelectedDesk.Model.Description}"/>
+                         <!--Style="{StaticResource multilineTBox}"-->
 
                 <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Photo: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Photo: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <Grid Grid.Row="2" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -52,37 +53,39 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="{Binding SelectedDesk.Image}"/>
                     <Button Grid.Row="1" Content="Select"
-                            Command="{Binding SelectPhotoForDeskCommand}"
-                            Style="{StaticResource commonBtn}"/>
+                            Command="{Binding SelectPhotoForDeskCommand}"/>
+                            <!--Style="{StaticResource commonBtn}"-->
                 </Grid>
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Columns: "
-                           Style="{StaticResource commonTBlock}" HorizontalAlignment="Right"/>
+                           HorizontalAlignment="Right"/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <StackPanel Grid.Row="3" Grid.Column="1">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ItemsControl ItemsSource="{Binding ColumnsForNewDesk}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBox Text="{Binding Value}" Width="150" Style="{StaticResource commonTBox}"/>
+                                        <TextBox Text="{Binding Value}" Width="150"/>
+                                                 <!--Style="{StaticResource commonTBox}"-->
                                         <Button Content=" - " Command="{Binding Path=DataContext.RemoveColumnItemCommand,
                                             RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                                                CommandParameter="{Binding}" 
-                                                Style="{StaticResource commonRedBtn}"/>
+                                                CommandParameter="{Binding}" />
+                                                <!--Style="{StaticResource commonRedBtn}"-->
                                     </StackPanel>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </ScrollViewer>
-                    <Button Content="+" Command="{Binding AddNewColumnItemCommand}" 
-                            Style="{StaticResource commonGreenBtn}"/>
+                    <Button Content="+" Command="{Binding AddNewColumnItemCommand}" />
+                            <!--Style="{StaticResource commonGreenBtn}"-->
                 </StackPanel>
                 <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"
-                           Text="Is private: "
-                           Style="{StaticResource commonTBlock}"/>
+                           Text="Is private: "/>
+                           <!--Style="{StaticResource commonTBlock}"-->
                 <CheckBox Grid.Row="4" Grid.Column="1" 
-                          IsChecked="{Binding SelectedDesk.Model.IsPrivate}"
-                          Style="{StaticResource commonChBox}"/>
+                          IsChecked="{Binding SelectedDesk.Model.IsPrivate}"/>
+                          <!--Style="{StaticResource commonChBox}"-->
             </Grid>
 
         </ScrollViewer>
@@ -93,7 +96,7 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="Delete" 
                     Command="{Binding DeleteDeskCommand}">
-                <Button.Style>
+                <!--<Button.Style>
                     <Style TargetType="Button" BasedOn="{StaticResource commonRedBtn}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding TypeActionWithDesk}" 
@@ -102,11 +105,11 @@
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </Button.Style>
+                </Button.Style>-->
             </Button>
             <Button Grid.Column="1" Content="Save"
-                    Command="{Binding CreateOrUpdateDeskCommand}" 
-                    Style="{StaticResource commonBtn}"/>
+                    Command="{Binding CreateOrUpdateDeskCommand}"/>
+                    <!--Style="{StaticResource commonBtn}"-->
         </Grid>
     </Grid>
 </Window>

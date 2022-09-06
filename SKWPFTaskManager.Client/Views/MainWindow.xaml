@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views"
         mc:Ignorable="d"
         Title="MainWindow" 
@@ -14,14 +15,16 @@
             <ColumnDefinition Width="150" MinWidth="50" MaxWidth="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <GridSplitter Grid.Column="0" Style="{StaticResource commonSplitter}"/>
+        <GridSplitter Grid.Column="0"/>
+        <!--Style="{StaticResource commonSplitter}"-->
         <Grid Grid.Column="0">
             <ItemsControl ItemsSource="{Binding NavButtons}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding Value}"
-                            Style="{StaticResource commonBtn}">
-                            <TextBlock Text="{Binding Key}" Style="{StaticResource commonTBlock}"/>
+                        <Button Command="{Binding Value}">
+                            <!--Style="{StaticResource commonBtn}"-->
+                            <TextBlock Text="{Binding Key}"/>
+                            <!--Style="{StaticResource commonTBlock}"-->
                         </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
@@ -33,8 +36,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Border BorderThickness="0,0,0,2" Style="{StaticResource commonBorder}"/>
-            <TextBlock Text="{Binding SelectedPageName}" Style="{StaticResource headerTBlock}"/>
+            <Border BorderThickness="0,0,0,2"/>
+            <!--Style="{StaticResource commonBorder}"-->
+            <TextBlock Text="{Binding SelectedPageName}"/>
+            <!--Style="{StaticResource headerTBlock}"-->
             <Frame Grid.Row="1" 
                    NavigationUIVisibility="Hidden" 
                    Content="{Binding SelectedPage}"/>
