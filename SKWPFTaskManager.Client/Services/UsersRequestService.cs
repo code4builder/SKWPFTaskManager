@@ -69,7 +69,7 @@ namespace SKWPFTaskManager.Client.Services
 
         public int? GetProjectUserAdmin(AuthToken token, int userId)
         {
-            var result = GetDataByUrl(HttpMethod.Get, _usersControllerUrl + $"{userId}/admin", token);
+            var result = GetDataByUrl(HttpMethod.Get, _usersControllerUrl + $"/{userId}/admin", token);
             int adminId;
             bool parseResult = int.TryParse(result, out adminId);
             return adminId;

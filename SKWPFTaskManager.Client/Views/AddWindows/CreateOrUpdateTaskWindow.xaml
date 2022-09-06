@@ -13,6 +13,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBlock Text="TASK" Style="{StaticResource headerTBlock}"/>
         <ScrollViewer Grid.Row="1"  
@@ -80,7 +81,9 @@
                 <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding SelectedTask.Model.FinishDate}"/>
             </Grid>
         </ScrollViewer>
-        <Button Grid.Row="2" Content="Save" Command="{Binding CreateOrUpdateTaskCommand}" 
+        <Button Grid.Row="2" Content="Delete" Command="{Binding DeleteTaskCommand}" 
+                Style="{StaticResource commonRedBtn}"/>
+        <Button Grid.Row="3" Content="Save" Command="{Binding CreateOrUpdateTaskCommand}" 
                 Style="{StaticResource commonBtn}"/>
     </Grid>
 </Window>

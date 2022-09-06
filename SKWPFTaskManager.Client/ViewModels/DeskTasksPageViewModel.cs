@@ -177,8 +177,6 @@ namespace SKWPFTaskManager.Client.ViewModels
 
         private void UpdateTask()
         {
-            SelectedTask = null;
-
             _tasksRequestService.UpdateTask(_token, SelectedTask.Model);
             TasksByColumns = GetTasksByColumns(_desk.Id);
 
@@ -257,6 +255,8 @@ namespace SKWPFTaskManager.Client.ViewModels
                 });
                 columnControl.MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler((s, e) => SendTaskToNewColumn());
 
+                columnControl.MouseDoubleClick += new System.Windows.Input.MouseButtonEventHandler((s, e) => OpenUpdateTask());
+
                 Grid.SetRow(columnControl, 1);
                 Grid.SetColumn(columnControl, columnCount);
 
@@ -270,7 +270,6 @@ namespace SKWPFTaskManager.Client.ViewModels
                     {
                         SelectedTask = task;
                     });
-                    //taskView.MouseLeave += new System.Windows.Input.MouseEventHandler((s, e) => SendTaskToNewColumn());
 
                     tasksViews.Add(taskView);
                 }
