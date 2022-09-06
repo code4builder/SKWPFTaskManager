@@ -143,6 +143,12 @@ namespace SKWPFTaskManager.Api.Models.Services
             return userForUpdate?.ToDto();
         }
 
+        public ProjectAdmin GetProjectAdmin(int userId)
+        {
+            ProjectAdmin admin = _db.ProjectAdmins.FirstOrDefault(a => a.UserId == userId);
+            return admin;
+        }
+
         public IEnumerable<UserModel> GetAllByIds(List<int> usersIds)
         {
             foreach (var id in usersIds)

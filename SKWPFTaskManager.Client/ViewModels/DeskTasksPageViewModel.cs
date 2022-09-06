@@ -166,7 +166,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void CreateTask()
         {
             SelectedTask.Model.DeskId = _desk.Id;
-            SelectedTask.Model.CreatorId = SelectedTaskExecutor.Id;
+            SelectedTask.Model.ExecutorId = SelectedTaskExecutor.Id;
             SelectedTask.Model.Column = _desk.Columns.FirstOrDefault();
 
             var resultAction = _tasksRequestService.CreateTask(_token, SelectedTask.Model);

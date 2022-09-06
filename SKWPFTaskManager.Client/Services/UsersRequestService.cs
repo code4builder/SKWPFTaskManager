@@ -66,5 +66,13 @@ namespace SKWPFTaskManager.Client.Services
             var result = SendDataByURL(HttpMethod.Patch, _usersControllerUrl + $"/{user.Id}", token, userJson);
             return result;
         }
+
+        public int? GetProjectUserAdmin(AuthToken token, int userId)
+        {
+            var result = GetDataByUrl(HttpMethod.Get, _usersControllerUrl + $"{userId}/admin", token);
+            int adminId;
+            bool parseResult = int.TryParse(result, out adminId);
+            return adminId;
+        }
     }
 }
