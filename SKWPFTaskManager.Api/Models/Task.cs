@@ -5,7 +5,7 @@ namespace SKWPFTaskManager.Api.Models
     public class Task : CommonObject
     {
         public int Id { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime? FinishDate { get; set; }
         public byte[]? File { get; set; }
         public int DeskId { get; set; }

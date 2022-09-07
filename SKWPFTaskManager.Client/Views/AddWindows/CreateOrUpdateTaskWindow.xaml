@@ -72,13 +72,17 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Start Date: " Style="{StaticResource commonTBlock}"
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Start Date: " 
+                           Style="{StaticResource commonTBlock}"
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding SelectedTask.Model.StartDate}"/>
+                <DatePicker Grid.Row="4" Grid.Column="1" 
+                            SelectedDate="{Binding SelectedTask.Model.StartDate}"/>
 
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Finish Date: " Style="{StaticResource commonTBlock}"
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Finish Date: " 
+                           Style="{StaticResource commonTBlock}"
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding SelectedTask.Model.FinishDate}"/>
+                <DatePicker Grid.Row="5" Grid.Column="1" 
+                            SelectedDate="{Binding SelectedTask.Model.FinishDate}"/>
             </Grid>
         </ScrollViewer>
         <Button Grid.Row="2" Content="Delete" 

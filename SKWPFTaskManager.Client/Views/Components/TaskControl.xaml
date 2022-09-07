@@ -50,18 +50,16 @@
                 <TextBlock Grid.Row="4" Grid.Column="0"
                                Text="Start Date: " 
                            Style="{StaticResource commonTBlock}"/>
-                <DatePickerTextBox Grid.Row="4" Grid.Column="1" x:Name="StartDatePicker"
-                                   Text="{Binding Path=Model.StartDate}"
-                                   Background="{StaticResource blueColor}"
-                                   Style="{StaticResource MaterialDesignDatePickerTextBox}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="StartDatePicker"
+                                   Text="{Binding Path=Model.StartDate, StringFormat=dd-MM-yyyy}"
+                                   Style="{StaticResource commonTBox}" FontSize="12"/>
 
                 <TextBlock Grid.Row="5" Grid.Column="0" 
                            Text="Finish Date: " 
                            Style="{StaticResource commonTBlock}"/>
-                <DatePickerTextBox Grid.Row="5" Grid.Column="1"
-                                   Text="{Binding Path=Model.FinishDate}"
-                                   Background="{StaticResource blueColor}"
-                                   Style="{StaticResource MaterialDesignDatePickerTextBox}"/>
+                <TextBox Grid.Row="5" Grid.Column="1"
+                                   Text="{Binding Path=Model.FinishDate, StringFormat=dd-MM-yyyy}"
+                                   Style="{StaticResource commonTBox}" FontSize="12"/>
             </Grid>
         </Border>
     </Grid>

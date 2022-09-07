@@ -16,7 +16,18 @@
         </Grid.ColumnDefinitions>
         <GridSplitter Grid.Column="0" Style="{StaticResource commonSplitter}"/>
         <Grid Grid.Column="0">
-            <ItemsControl ItemsSource="{Binding NavButtons}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="My Info"
+                    Command="{Binding OpenMyInfoPageCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
+            <ItemsControl ItemsSource="{Binding NavButtons}" Grid.Row="2">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Command="{Binding Value}"
@@ -26,6 +37,12 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <Button Grid.Row="4" Content="Logout"
+                    Command="{Binding LogoutCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
+            <Button Grid.Row="5" Content="About"
+                    Command="{Binding AboutCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
