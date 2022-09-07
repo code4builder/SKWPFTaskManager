@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         mc:Ignorable="d"
-        Title="AddUsersToProjectWindow" Height="450" Width="800">
+        Title="AddUsersToProjectWindow" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding NewUsersForSelectedProject}"
                  SelectionMode="Extended"

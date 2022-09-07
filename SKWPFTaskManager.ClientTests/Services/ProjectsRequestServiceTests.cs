@@ -41,7 +41,7 @@ namespace SKWPFTaskManager.Client.Services.Tests
         [TestMethod()]
         public void CreateProjectTest()
         {
-            ProjectModel project = new ProjectModel("New project 3", "Description project 3", ProjectStatus.InProgress);
+            ProjectModel project = new ProjectModel("New project 3", "Description project 3", ProjectStatus.To_Do);
             project.AdminId = 1;
 
             var result = _service.CreateProject(_token, project);
@@ -52,7 +52,7 @@ namespace SKWPFTaskManager.Client.Services.Tests
         [TestMethod()]
         public void UpdateProjectTest()
         {
-            ProjectModel project = new ProjectModel("New project 5 updated", "Description project 5 updated", ProjectStatus.InProgress);
+            ProjectModel project = new ProjectModel("New project 5 updated", "Description project 5 updated", ProjectStatus.To_Do);
             project.Id = 6;
 
             var result = _service.UpdateProject(_token, project);

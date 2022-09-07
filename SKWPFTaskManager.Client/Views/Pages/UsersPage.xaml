@@ -9,7 +9,7 @@
       Title="UsersPage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid>
@@ -36,12 +36,28 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding FirstName}"/>
-                                    <TextBlock Text="{Binding Surname}"/>
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="First Name: "/>
+                                        <TextBlock Text="{Binding FirstName}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Last Name: "/>
+                                        <TextBlock Text="{Binding LastName}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Email: "/>
+                                        <TextBlock Text="{Binding Email}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Phone: "/>
+                                        <TextBlock Text="{Binding Phone}"/>
+                                    </StackPanel>
                                 </StackPanel>
-                                <TextBlock Grid.Row="1" Grid.Column="0"
-                                           Text="{Binding Email}"/>
+
                                 <Button Grid.Row="0" Grid.Column="1"
                                         Content="Update" Command="{Binding Path=DataContext.OpenUpdateUserCommand, 
                                         RelativeSource={RelativeSource AncestorType=ItemsControl}}" 

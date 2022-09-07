@@ -21,6 +21,8 @@ namespace SKWPFTaskManager.Client.ViewModels
         public DelegateCommand OpenDesksPageCommand { get; private set; }
         public DelegateCommand OpenTasksPageCommand { get; private set; }
         public DelegateCommand LogoutCommand { get; private set; }
+        public DelegateCommand AboutCommand { get; private set; }
+
 
         public DelegateCommand OpenUsersManagementCommand;
 
@@ -35,7 +37,6 @@ namespace SKWPFTaskManager.Client.ViewModels
             _currentWindow = currentWindow;
 
             OpenMyInfoPageCommand = new DelegateCommand(OpenMyInfoPage);
-            NavButtons.Add(_userInfoBtnName, OpenMyInfoPageCommand);
 
             OpenProjectsPageCommand = new DelegateCommand(OpenProjectsPage);
             NavButtons.Add(_userProjectsBtnName, OpenProjectsPageCommand);
@@ -53,9 +54,10 @@ namespace SKWPFTaskManager.Client.ViewModels
             }
 
             LogoutCommand = new DelegateCommand(Logout);
-            NavButtons.Add(_logoutBtnName, LogoutCommand);
+            AboutCommand = new DelegateCommand(About);
 
-            OpenMyInfoPage();
+
+            OpenProjectsPage();
         }
 
         #region PROPERTIES
@@ -161,6 +163,12 @@ namespace SKWPFTaskManager.Client.ViewModels
                 login.Show();
                 _currentWindow.Close();
             }
+        }
+
+        private void About()
+        {
+            MessageBox.Show("Task Manager V1.0.0 \n \nSimple task manager tool for managing and organizing your plans \n \n" +
+                            "This application was created by Sergey Kuleshov \n \nEmail: code4builder@gmail.com");
         }
 
         private void OpenUsersManagement()

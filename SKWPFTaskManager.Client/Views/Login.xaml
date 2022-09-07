@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views"
         mc:Ignorable="d"
         Title="Login" 
@@ -21,13 +22,16 @@
                     Orientation="Vertical" 
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
-                    Width="250">
+                    Width="200">
             <TextBox Text="{Binding UserLogin}" 
-                     Style="{StaticResource commonTBox}"
-                     HorizontalContentAlignment="Center"/>
+                     Style="{StaticResource commonFloatingTBox}"
+                     HorizontalContentAlignment="Center"
+                     materialDesign:HintAssist.Hint="Login"/>
             <PasswordBox x:Name="UserPassword"
                          HorizontalContentAlignment="Center"
-                         Style="{StaticResource commonPBox}"/>
+                         Style="{StaticResource commonPBox}"
+                         materialDesign:HintAssist.Hint="Password"
+                         />
             <Button Content="Ok"
                     Command="{Binding GetUserFromDBCommand}"
                     CommandParameter="{Binding ElementName=UserPassword}"
@@ -41,7 +45,8 @@
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding CurrentUserCache}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding CurrentUserCache}" 
+                                     Value="{x:Null}">
                             <Setter Property="Visibility" Value="Hidden"/>
                             <Setter Property="Height" Value="0"/>
                         </DataTrigger>
@@ -53,7 +58,8 @@
             <Button Content="{Binding CurrentUserCache.Login}"
                     Command="{Binding LoginFromCacheCommand}"
                     CommandParameter="{Binding ElementName=window}"
-                    Style="{StaticResource commonBtn}"/>
+                    Style="{StaticResource commonBtn}"
+                    Width="100"/>
         </StackPanel>
     </Grid>
 </Window>

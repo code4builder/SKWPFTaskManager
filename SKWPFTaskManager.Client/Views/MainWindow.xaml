@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="450" Width="800"
-        MinHeight="200" MinWidth="300"
-        WindowStartupLocation="CenterScreen">
+        WindowState="Maximized"
+        WindowStyle="ToolWindow">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" MinWidth="50" MaxWidth="150"/>
@@ -16,7 +16,18 @@
         </Grid.ColumnDefinitions>
         <GridSplitter Grid.Column="0" Style="{StaticResource commonSplitter}"/>
         <Grid Grid.Column="0">
-            <ItemsControl ItemsSource="{Binding NavButtons}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="My Info"
+                    Command="{Binding OpenMyInfoPageCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
+            <ItemsControl ItemsSource="{Binding NavButtons}" Grid.Row="2">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Command="{Binding Value}"
@@ -26,16 +37,22 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <Button Grid.Row="4" Content="Logout"
+                    Command="{Binding LogoutCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
+            <Button Grid.Row="5" Content="About"
+                    Command="{Binding AboutCommand}" 
+                    Style="{StaticResource commonWhiteBtn}"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Border BorderThickness="0,0,0,2" Style="{StaticResource commonBorder}"/>
             <TextBlock Text="{Binding SelectedPageName}" Style="{StaticResource headerTBlock}"/>
-            <Frame Grid.Row="1" 
+            <Frame Grid.Row="1"  
                    NavigationUIVisibility="Hidden" 
                    Content="{Binding SelectedPage}"/>
 

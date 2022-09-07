@@ -2,7 +2,7 @@
 {
     public class TaskModel : CommonModel
     {
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime? FinishDate { get; set; }
         public byte[]? File { get; set; }
         public int DeskId { get; set; }
@@ -16,7 +16,7 @@
         {
             Name = name;
             Description = description;
-            StartDate = start;
+            StartDate = start; 
             FinishDate = finish;
             Column = column;
         }

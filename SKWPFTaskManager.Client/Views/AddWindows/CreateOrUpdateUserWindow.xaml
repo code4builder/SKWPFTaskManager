@@ -22,7 +22,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
         <TextBlock Text="User" Style="{StaticResource headerTBlock}"/>
         <ScrollViewer Grid.Row="1"  

@@ -10,10 +10,10 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <TextBlock Text="TASK" Style="{StaticResource headerTBlock}"/>
         <ScrollViewer Grid.Row="1"  
@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="30"/>
@@ -49,7 +49,7 @@
                 <Grid Grid.Row="2" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="" MaxHeight="300"/>
                     <Button Grid.Row="1" Content="Select" 
@@ -72,16 +72,21 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Start Date: " Style="{StaticResource commonTBlock}"
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Start Date: " 
+                           Style="{StaticResource commonTBlock}"
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding SelectedTask.Model.StartDate}"/>
+                <DatePicker Grid.Row="4" Grid.Column="1" 
+                            SelectedDate="{Binding SelectedTask.Model.StartDate}"/>
 
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Finish Date: " Style="{StaticResource commonTBlock}"
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Finish Date: " 
+                           Style="{StaticResource commonTBlock}"
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding SelectedTask.Model.FinishDate}"/>
+                <DatePicker Grid.Row="5" Grid.Column="1" 
+                            SelectedDate="{Binding SelectedTask.Model.FinishDate}"/>
             </Grid>
         </ScrollViewer>
-        <Button Grid.Row="2" Content="Delete" Command="{Binding DeleteTaskCommand}" 
+        <Button Grid.Row="2" Content="Delete" 
+                Command="{Binding DeleteTaskCommand}" 
                 Style="{StaticResource commonRedBtn}"/>
         <Button Grid.Row="3" Content="Save" Command="{Binding CreateOrUpdateTaskCommand}" 
                 Style="{StaticResource commonBtn}"/>

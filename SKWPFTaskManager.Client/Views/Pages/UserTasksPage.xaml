@@ -23,9 +23,9 @@
                     <GridViewColumn Header="Executor"
                                     DisplayMemberBinding="{Binding Path=Executor}"/>
                     <GridViewColumn Header="Start"
-                                    DisplayMemberBinding="{Binding Path=Model.StartDate}"/>
+                                    DisplayMemberBinding="{Binding Path=Model.StartDate, StringFormat=dd-MM-yyyy}"/>
                     <GridViewColumn Header="Finish"
-                                    DisplayMemberBinding="{Binding Path=Model.FinishDate}"/>
+                                    DisplayMemberBinding="{Binding Path=Model.FinishDate, StringFormat=dd-MM-yyyy}"/>
                 </GridView>
             </ListView.View>
         </ListView>

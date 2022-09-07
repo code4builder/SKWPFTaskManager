@@ -19,9 +19,9 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Button Content="Select EXCEL file" Command="{Binding GetUsersFromExcelCommand}" 
                 Style="{StaticResource commonBtn}"/>
