@@ -47,9 +47,6 @@ namespace SKWPFTaskManager.Client.ViewModels
             ContextMenuCommands.Add("Edit", OpenEditDeskCommand);
             ContextMenuCommands.Add("Delete", DeleteDeskCommand);
 
-            
-
-
             UpdatePage();
         }
 

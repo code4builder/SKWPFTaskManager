@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         xmlns:models="clr-namespace:SKWPFTaskManager.Common.Models;assembly=SKWPFTaskManager.Common.Models"
         mc:Ignorable="d"
-        Title="CreateOrUpdateTaskWindow" Height="450" Width="350"
+        Title="{Binding CreateOrUpdateTaskWindowTitle}" Height="450" Width="350"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

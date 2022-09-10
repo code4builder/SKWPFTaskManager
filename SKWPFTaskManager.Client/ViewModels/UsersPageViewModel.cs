@@ -103,6 +103,19 @@ namespace SKWPFTaskManager.Client.ViewModels
             }
         }
         private string _excelDialogFilterPattern = "Excel Files(.xls)|*.xls| Excel Files(.xlsx)|*.xlsx| Excel Files(*.xlsm)|*.xlsm";
+
+        private string _createOrUpdateUserWindowTitle;
+
+        public string CreateOrUpdateUserWindowTitle
+        {
+            get => _createOrUpdateUserWindowTitle;
+            set
+            {
+                _createOrUpdateUserWindowTitle = value;
+                RaisePropertyChanged(nameof(CreateOrUpdateUserWindowTitle));
+            }
+        }
+
         #endregion
 
         #region METHODS
@@ -112,6 +125,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             if (userObj != null)
             {
                 TypeActionWithUser = ClientAction.Update;
+                CreateOrUpdateUserWindowTitle = "Update user";
                 int userId = ((UserModel)userObj).Id;
                 SelectedUser = _usersRequestService.GetUserById(_token, userId);
 
@@ -122,6 +136,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void OpenNewUser()
         {
             TypeActionWithUser = ClientAction.Create;
+            CreateOrUpdateUserWindowTitle = "Create user";
             SelectedUser = new UserModel();
             var wnd = new CreateOrUpdateUserWindow();
             _viewService.OpenWindow(wnd, this);

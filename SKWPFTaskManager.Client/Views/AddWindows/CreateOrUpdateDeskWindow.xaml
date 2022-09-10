@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views.AddWindows"
         mc:Ignorable="d"
-        Title="CreateOrUpdateDeskWindow" Height="550" Width="350"
+        Title="{Binding CreateOrUpdateDeskWindowTitle}" Height="550" Width="350"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.49*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -68,14 +68,16 @@
                                         <Button Content=" - " Command="{Binding Path=DataContext.RemoveColumnItemCommand,
                                             RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                                 CommandParameter="{Binding}" 
-                                                Style="{StaticResource commonRedBtn}"/>
+                                                Style="{StaticResource commonRedBtn}"
+                                                ToolTip="Delete this column"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </ScrollViewer>
                     <Button Content="+" Command="{Binding AddNewColumnItemCommand}" 
-                            Style="{StaticResource commonGreenBtn}"/>
+                            Style="{StaticResource commonGreenBtn}" 
+                            ToolTip="Add column"/>
                 </StackPanel>
                 <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"
                            Text="Is private: "

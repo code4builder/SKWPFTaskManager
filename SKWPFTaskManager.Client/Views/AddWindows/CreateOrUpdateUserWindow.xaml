@@ -7,8 +7,8 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:commonModels="clr-namespace:SKWPFTaskManager.Common.Models;assembly=SKWPFTaskManager.Common.Models"
         mc:Ignorable="d"
-        Title="CreateOrUpdateUserWindow" 
-        Height="300" Width="350"
+        Title="{Binding CreateOrUpdateUserWindowTitle}" 
+        Height="350" Width="350"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
@@ -33,12 +33,12 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name: " 
@@ -75,7 +75,7 @@
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Status: " Style="{StaticResource commonTBlock}"
                            HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <ComboBox  Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Source={StaticResource dataFromEnum}}" 
-                           SelectedItem="{Binding SelectedUser.Status}"/>
+                           SelectedItem="{Binding SelectedUser.Status}" HorizontalContentAlignment="Center"/>
             </Grid>
         </ScrollViewer>
         <Button Grid.Row="2" Content="Save" Command="{Binding CreateOrUpdateUserCommand}" 

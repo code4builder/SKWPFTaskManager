@@ -121,6 +121,18 @@ namespace SKWPFTaskManager.Client.ViewModels
                 RaisePropertyChanged(nameof(ColumnsForNewDesk));
             }
         }
+
+        private string _createOrUpdateDeskWindowTitle;
+
+        public string CreateOrUpdateDeskWindowTitle
+        {
+            get => _createOrUpdateDeskWindowTitle;
+            set
+            {
+                _createOrUpdateDeskWindowTitle = value;
+                RaisePropertyChanged(nameof(CreateOrUpdateDeskWindowTitle));
+            }
+        }
         #endregion
 
         #region METHODS
@@ -129,6 +141,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             SelectedDesk = new ModelClient<DeskModel>(new DeskModel());
             TypeActionWithDesk = ClientAction.Create;
+            CreateOrUpdateDeskWindowTitle = "Create Desk";
 
             var window = new CreateOrUpdateDeskWindow();
             _viewService.OpenWindow(window, this);
@@ -145,6 +158,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             }
 
             TypeActionWithDesk = ClientAction.Update;
+            CreateOrUpdateDeskWindowTitle = "Update Desk";
             ColumnsForNewDesk =new ObservableCollection<ColumnBindingHelp>(SelectedDesk.Model.Columns.Select(c => new ColumnBindingHelp(c)));
 
             _desksViewService.OpenViewDeskInfo(deskId, this);
