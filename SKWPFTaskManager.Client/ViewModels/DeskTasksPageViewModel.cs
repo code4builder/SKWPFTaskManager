@@ -121,6 +121,19 @@ namespace SKWPFTaskManager.Client.ViewModels
                 RaisePropertyChanged(nameof(SelectedColumnName));
             }
         }
+
+        private string _createOrUpdateTaskWindowTitle;
+
+        public string CreateOrUpdateTaskWindowTitle
+        {
+            get => _createOrUpdateTaskWindowTitle;
+            set 
+            { 
+                _createOrUpdateTaskWindowTitle = value; 
+                RaisePropertyChanged(nameof(CreateOrUpdateTaskWindowTitle));
+            }
+        }
+
         #endregion
 
         #region METHODS
@@ -152,10 +165,12 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             if (TypeActionWithTask == ClientAction.Create)
             {
+                CreateOrUpdateTaskWindowTitle = "Create Task";
                 CreateTask();
             }
             if (TypeActionWithTask == ClientAction.Update)
             {
+                CreateOrUpdateTaskWindowTitle = "Update Task";
                 UpdateTask();
             }
 
@@ -166,8 +181,10 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void CreateTask()
         {
             SelectedTask.Model.DeskId = _desk.Id;
-            SelectedTask.Model.ExecutorId = SelectedTaskExecutor.Id;
+            SelectedTask.Model.ExecutorId = SelectedTaskExecutor?.Id;
             SelectedTask.Model.Column = _desk.Columns.FirstOrDefault();
+            
+
 
             var resultAction = _tasksRequestService.CreateTask(_token, SelectedTask.Model);
             _viewService.ShowActionResult(resultAction, "New Task has been created");
@@ -200,6 +217,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void OpenNewTask()
         {
             TypeActionWithTask = ClientAction.Create;
+            CreateOrUpdateTaskWindowTitle = "Create Task";
 
             SelectedTask = new TaskClient(new TaskModel());
 
@@ -210,6 +228,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         private void OpenUpdateTask()
         {
             TypeActionWithTask = ClientAction.Update;
+            CreateOrUpdateTaskWindowTitle = "Update Task";
             var wnd = new CreateOrUpdateTaskWindow();
             _viewService.OpenWindow(wnd, this);
         }

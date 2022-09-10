@@ -7,7 +7,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:commonModels="clr-namespace:SKWPFTaskManager.Common.Models;assembly=SKWPFTaskManager.Common.Models"
         mc:Ignorable="d"
-        Title="CreateOrUpdateProjectWindow" 
+        Title="{Binding CreateOrUpdateProjectWindowTitle}" 
         Height="500" Width="350"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>

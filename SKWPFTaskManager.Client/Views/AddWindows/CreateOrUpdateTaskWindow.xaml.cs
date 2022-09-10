@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SKWPFTaskManager.Client.ViewModels;
+using System.Windows;
 
 namespace SKWPFTaskManager.Client.Views.AddWindows
 {

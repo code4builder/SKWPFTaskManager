@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SKWPFTaskManager.Client.Views"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="Task Manager" 
         WindowState="Maximized"
         WindowStyle="ToolWindow">
     <Grid>
@@ -19,7 +19,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="160"/>
+                <RowDefinition Height="165"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="45"/>

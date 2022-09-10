@@ -133,6 +133,18 @@ namespace SKWPFTaskManager.Client.ViewModels
             }
         }
 
+        private string _createOrUpdateProjectWindowTitle;
+
+        public string CreateOrUpdateProjectWindowTitle
+        {
+            get => _createOrUpdateProjectWindowTitle;
+            set
+            {
+                _createOrUpdateProjectWindowTitle = value;
+                RaisePropertyChanged(nameof(CreateOrUpdateProjectWindowTitle));
+            }
+        }
+
         #endregion
 
         #region METHODS
@@ -140,6 +152,7 @@ namespace SKWPFTaskManager.Client.ViewModels
         {
             SelectedProject = new ModelClient<ProjectModel>(new ProjectModel());
             TypeActionWithProject = ClientAction.Create;
+            CreateOrUpdateProjectWindowTitle = "Create Project";
 
             var window = new CreateOrUpdateProjectWindow();
 
@@ -153,6 +166,7 @@ namespace SKWPFTaskManager.Client.ViewModels
             if (adminId == SelectedProject.Model.AdminId)
             {
                 TypeActionWithProject = ClientAction.Update;
+                CreateOrUpdateProjectWindowTitle = "Update Project";
 
                 var window = new CreateOrUpdateProjectWindow();
                 _viewService.OpenWindow(window, this);
@@ -161,7 +175,6 @@ namespace SKWPFTaskManager.Client.ViewModels
             {
                 _viewService.ShowMessage("You are not admin!");
             }
-
         }
 
         private void ShowProjectInfo(object projectId)
