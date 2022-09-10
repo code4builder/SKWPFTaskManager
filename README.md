@@ -29,11 +29,14 @@ For serialization/deserialization of Json format is used **Newtonsoft.Json libra
 For user interface was used **WPF (Windows Presentation Foundation)** with Material Design libraries for better style.<br />
 
 ## Screenshots
-Page XXX:
-add screenshot
+Tasks Kanban Style:
+![Screenshot1](/Screenshots/screenshot_tasks.jpg)
 
-Page XXX:
-add screenshot
+Creating New Desk:
+![Screenshot1](/Screenshots/screenshot_desk.jpg)
+
+Users Panel:
+![Screenshot1](/Screenshots/screenshot_users.jpg)
 
 ## Video Tutorial
 Visit link XXX
