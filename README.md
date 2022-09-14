@@ -39,7 +39,7 @@ Users Panel:
 ![Screenshot1](/Screenshots/screenshot_users.jpg)
 
 ## Video Tutorial
-Visit link XXX
+Visit link https://www.youtube.com/watch?v=CIL6y2fJRn0
 
 ## License
 This application is licensed under the terms of the MIT License. Please see the LICENSE file for full details.
